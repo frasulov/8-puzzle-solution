@@ -35,8 +35,6 @@ class State():
 
     def is_goal(self):
         goal = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
-        # goal = [[1, 2, 3], [4, 5, 6], [7, 6, 5]]
-        # goal = [[1,2,3], [8, 0, 4], [7, 6, 5]]
         return goal == self.value
 
 
@@ -83,7 +81,7 @@ def contains(visitedStates, state):
     return False
 
 def dfs(root):
-    visitedStates = set()  # explored states
+    visitedStates = set()
     stack = [root]
     while len(stack) > 0:
         currentState = stack.pop()
@@ -107,7 +105,7 @@ def dfs(root):
 
 
 def bfs(root):
-    visitedStates = set()  # explored states
+    visitedStates = set()
     queue = deque([root])
     while len(queue) > 0:
         currentState = queue.popleft()
@@ -136,4 +134,4 @@ if __name__ == '__main__':
     # goal = dfs(root)
     goal = bfs(root)
     print(goal.move)
-    # goal.print()
+    goal.print()
